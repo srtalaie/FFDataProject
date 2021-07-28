@@ -51,7 +51,33 @@ wr_proj_df = proj_df[proj_df['Pos'] == 'WR']
 te_proj_df = proj_df[proj_df['Pos'] == 'TE']
 qb_proj_df = proj_df[proj_df['Pos'] == 'QB']
 
+# +
 #ADP for current year and scoring format
-adp_df = pd.read_csv(GLOBAL.ADP_2021_HALF_PPR)
+adp_df = pd.read_csv(GLOBAL.ADP_2021_HALF_PPR, index_col=0)
+
+adp_df['ADP RANK'] = adp_df['AVG'].rank()
+
+adp_df_cutoff = adp_df[:100]
+
+replacement_players = {
+    'RB': '',
+    'WR': '',
+    'TE': '',
+    'QB': ''
+}
+# -
+
+#ONLY FOR OLDER DATASETS
+for _, row in adp_df_cutoff.iterrows():
+    position = row['POS'][:1]
+    print(position)
+    player = row['Player']
+
+    if position in replacement_players:
+        replacement_players[position] = player
+
+replacement_players
+
+adp_df
 
 

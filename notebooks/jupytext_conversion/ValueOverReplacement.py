@@ -16,6 +16,4 @@ import sys
 src_dir = os.path.join(os.getcwd(), '..', 'src')
 sys.path.append(src_dir)
 
-
-
-
+import pandas as pd

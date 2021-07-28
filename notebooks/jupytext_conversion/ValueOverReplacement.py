@@ -43,6 +43,35 @@ rb_proj_df = proj_df[proj_df['Pos'] == 'RB', ['Player, Team, Pos, Receptions, Re
 wr_proj_df = proj_df[proj_df['Pos'] == 'WR', ['Player, Team, Pos, Receptions, ReceivingYds, FL, ReceivingTD, RushingAtt, RushingYds, RushingTD, PassingAtt, PassingYds, PassingTD, Int']]
 te_proj_df = proj_df[proj_df['Pos'] == 'TE', ['Player, Team, Pos, Receptions, ReceivingYds, FL, ReceivingTD, RushingAtt, RushingYds, RushingTD, PassingAtt, PassingYds, PassingTD, Int']]
 qb_proj_df = proj_df[proj_df['Pos'] == 'QB', ['Player, Team, Pos, Receptions, ReceivingYds, FL, ReceivingTD, RushingAtt, RushingYds, RushingTD, PassingAtt, PassingYds, PassingTD, Int']]
+
+#ADP for current year and scoring format
+adp_df = pd.read_csv(GLOBAL.ADP_2021_HALF_PPR, index_col=0)
+
+adp_df['ADP RANK'] = adp_df['AVG'].rank()
+
+adp_df_cutoff = adp_df[:100]
+
+replacement_players = {
+    'RB': '',
+    'WR': '',
+    'TE': '',
+    'QB': ''
+}
+
+for _, row in adp_df_cutoff.iterrows():
+    position = row['POS'][:2]
+    player = row['Player']
+
+    if position in replacement_players:
+        replacement_players[position] = player
+
+vor_df = proj_df[['Player', 'Pos', 'Team', 'FantasyPoints']]
+
+replacement_values = {}
+
+for position, player_name in replacement_players.items():
+    player = proj_df.loc[proj_df['Player'] == player_name]
+    replacement_values[position] = player['FantasyPoints'].tolist()[0]
 # -
 
 #Get dataframes of specific pos
@@ -67,17 +96,27 @@ replacement_players = {
 }
 # -
 
-#ONLY FOR OLDER DATASETS
 for _, row in adp_df_cutoff.iterrows():
-    position = row['POS'][:1]
-    print(position)
+    position = row['POS'][:2]
     player = row['Player']
+)
 
     if position in replacement_players:
         replacement_players[position] = player
 
-replacement_players
+#Will Fuller was listed as Will Fuller V in ADP lsit needed to change
+replacement_players['WR'] = 'Will Fuller'
 
-adp_df
+vor_df = proj_df[['Player', 'Pos', 'Tm', 'Half PPR']]
+
+# +
+replacement_values = {}
+
+for position, player_name in replacement_players.items():
+    player = vor_df.loc[vor_df['Player'] == player_name]
+    replacement_values[position] = player['Half PPR'].tolist()
+# -
+
+replacement_values
 
 

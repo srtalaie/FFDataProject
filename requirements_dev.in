@@ -2,3 +2,8 @@ jupyter
 jupytext
 pipdeptree
 when-changed
+pandas
+seaborn
+scikit-learn
+keras
+tensorflow

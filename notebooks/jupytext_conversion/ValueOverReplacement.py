@@ -11,9 +11,17 @@
 #     name: python3
 # ---
 
+# +
 import os
 import sys
 src_dir = os.path.join(os.getcwd(), '..', 'src')
 sys.path.append(src_dir)
 
+from utils import GLOBAL
+# -
+
 import pandas as pd
+
+pd.read_csv(GLOBAL.PROJECTIONS_2021)
+
+

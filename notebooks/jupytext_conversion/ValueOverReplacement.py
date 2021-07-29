@@ -99,7 +99,6 @@ replacement_players = {
 for _, row in adp_df_cutoff.iterrows():
     position = row['POS'][:2]
     player = row['Player']
-)
 
     if position in replacement_players:
         replacement_players[position] = player

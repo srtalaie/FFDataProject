@@ -1,3 +1,3 @@
 # FFDataProject
 
-Using data from [fantasypros.com](Fantasy Pros) and [https://github.com/fantasydatapros/data](Fantasy Data Pros) along with Fantasy Data Pro's online course.
+Using data from [Fantasy Pros](fantasypros.com) and [Fantasy Data Pros](https://github.com/fantasydatapros/data) along with Fantasy Data Pro's online course.

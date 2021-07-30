@@ -14,7 +14,21 @@ import pandas as pd
 
 
 # %%
+#Projections for current year
 proj_df = pd.read_csv(GLOBAL.PROJECTIONS_2021, index_col=0)
+
+#ADP for current year and scoring format
+adp_df = pd.read_csv(GLOBAL.ADP_2021_HALF_PPR, index_col=0)
+
+#Either Standard, Half PPR, or PPR
+FANTASY_SCORING_FORMAT = 'Half PPR'
+
+#VOR dataframe based on scoring format
+vor_df = proj_df[['Player', 'Pos', 'Tm', FANTASY_SCORING_FORMAT]]
+
+vor_df = vor_df.rename(columns={
+    FANTASY_SCORING_FORMAT: 'Projected Fantasy Total'
+})
 
 
 # %%
@@ -26,9 +40,6 @@ qb_proj_df = proj_df[proj_df['Pos'] == 'QB']
 
 
 # %%
-#ADP for current year and scoring format
-adp_df = pd.read_csv(GLOBAL.ADP_2021_HALF_PPR, index_col=0)
-
 adp_df['ADP RANK'] = adp_df['AVG'].rank()
 
 adp_df_cutoff = adp_df[:100]
@@ -51,15 +62,11 @@ for _, row in adp_df_cutoff.iterrows():
 
 
 # %%
-vor_df = proj_df[['Player', 'Pos', 'Tm', 'Half PPR']]
-
-
-# %%
 replacement_values = {}
 
 for position, player_name in replacement_players.items():
     player = vor_df.loc[vor_df['Player'] == player_name]
-    replacement_values[position] = player['Half PPR'].tolist()[0]
+    replacement_values[position] = player['Projected Fantasy Total'].tolist()[0]
 
 
 # %%
@@ -69,7 +76,7 @@ pd.set_option('display.max_rows', None)
 vor_df = vor_df.loc[vor_df['Pos'].isin(['QB', 'RB', 'WR', 'TE'])]
 
 vor_df['VOR'] = vor_df.apply(
-    lambda row: row['Half PPR'] - replacement_values.get(row['Pos']), axis=1
+    lambda row: row['Projected Fantasy Total'] - replacement_values.get(row['Pos']), axis=1
 )
 
 
@@ -198,14 +205,10 @@ qb_df_draft_pool.sort_values(by='Diff in ADP and Value', ascending=True).head(10
 
 
 # %%
-final_df = final_df[['Player', 'Pos Rank', 'Team', 'Bye', 'Value', 'Value Rank', 'Average ADP', 'ADP Rank', 'Diff in ADP and Value', 'Half PPR']]
+final_df = final_df[['Player', 'Pos Rank', 'Team', 'Bye', 'Value', 'Value Rank', 'Average ADP', 'ADP Rank', 'Diff in ADP and Value', 'Projected Fantasy Total']]
 
 
 # %%
-final_df.head(20)
-
-
-# %%
-
+final_df.to_csv(r'../FinalData/ValueOverReplacement.csv', encoding='utf-8', index=False);
 
 

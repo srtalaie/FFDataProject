@@ -18,6 +18,14 @@ ADP_2021_STANDARD= UNV_PATH + '/2021ADPStd.csv'
 ADP_2021_HALF_PPR= UNV_PATH + '/2021ADPHalfPPR.csv'
 ADP_2021_PPR= UNV_PATH + '2021ADPPPR.csv'
 
+#Yearly Stats
+STATS_2020 = 'https://raw.githubusercontent.com/fantasydatapros/data/master/yearly/2020.csv'
+STATS_2019 = 'https://raw.githubusercontent.com/fantasydatapros/data/master/yearly/2019.csv'
+STATS_2018 = 'https://raw.githubusercontent.com/fantasydatapros/data/master/yearly/2018.csv'
+STATS_2017 = 'https://raw.githubusercontent.com/fantasydatapros/data/master/yearly/2017.csv'
+STATS_2016 = 'https://raw.githubusercontent.com/fantasydatapros/data/master/yearly/2016.csv'
+STATS_2015 = 'https://raw.githubusercontent.com/fantasydatapros/data/master/yearly/2015.csv'
+
 
 ##########FantasyScoring##########
 STANDARD_SCORING = {

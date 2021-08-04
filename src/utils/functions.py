@@ -4,6 +4,7 @@ src_dir = os.path.join(os.getcwd(), '..', 'src')
 sys.path.append(src_dir)
 
 import pandas as pd
+import numpy as np
 
 #######Scoring Calculator#######
 def scoringCalculator (rec, recYds, recTD, fl, rushYds, rushTD, passYds, passTD, int, SCORING_WEIGHTS):
@@ -21,3 +22,9 @@ def scoreByWeek (final_df, year, rangeStart, rangeEnd):
         final_df = pd.concat([final_df, df])
 
     return final_df
+
+#######Correlation#######
+def correlation(x, y):
+    n = len(x)
+    covariance = sum((x - np.mean(x)) * (y - np.mean(y))) * 1/(n-1)
+    return covariance/(np.std(x) * np.std(y))

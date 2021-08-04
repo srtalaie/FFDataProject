@@ -9,3 +9,5 @@ dependencies:
   - seaborn
   - tensorflow
   - conda-build
+  - sklearn
+  - nflfastpy

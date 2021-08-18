@@ -28,3 +28,11 @@ def correlation(x, y):
     n = len(x)
     covariance = sum((x - np.mean(x)) * (y - np.mean(y))) * 1/(n-1)
     return covariance/(np.std(x) * np.std(y))
+
+#######Get top player of pos#######
+def get_top_n_player_at_eac_position(df, pos, n, scoring_format):
+    df = df.loc[df['Pos'] == pos]
+
+    return df.groupby('Tm', as_index=False).apply(
+        lambda x: x.nlargest(n, [scoring_format]).min()
+    )

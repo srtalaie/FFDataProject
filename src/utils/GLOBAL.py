@@ -7,7 +7,7 @@ UNV_PATH = '/'.join((sys.path[-1].split('/')[:5])) + '/data'
 
 ##########Dataframes##########
 #Machine Learning Cleaned Data 2014-1018
-CLEANED_DATA_2014_2019 = UNV_PATH + '/2014_2019_Weekly_Data.csv'
+CLEANED_DATA_2014_2019 = UNV_PATH + '/2014_2019_weekly_data_cleaned.csv'
 
 #Projections
 PROJECTIONS_2021 = UNV_PATH + '/2021projections.csv'

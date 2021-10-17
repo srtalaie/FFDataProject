@@ -36,3 +36,16 @@ def get_top_n_player_at_eac_position(df, pos, n, scoring_format):
     return df.groupby('Tm', as_index=False).apply(
         lambda x: x.nlargest(n, [scoring_format]).min()
     )
+
+#######Assign Labels to Tiers#######
+def assign_tiers(labels):
+    unique_labels = []
+    tiers = []
+    for i in labels:
+        if i not in unique_labels:
+            unique_labels.append(i)
+
+        tiers.append(
+            len(set(unique_labels))
+        )
+    return tiers

@@ -14,7 +14,7 @@ def get_fantasy_points(player, pos):
 
 pos = 'WR'
 year = '2019'
-week = 1
+week = 1 #Enter 'all' to get whole year
 
 res = requests.get(f'https://www.fantasyfootballdatapros.com/api/players/{year}/{week}')
 
@@ -34,7 +34,7 @@ if res.ok:
 
     for player in data:
         if player.get('position') == pos:
-            vor = player.get('fantasy_points').get('ppr') - replacement_value
+            vor = player.get('fantasy_points').get(scoring_format) - replacement_value
             print(
                 player.get('player_name'), 'had a VOR of', vor
             )

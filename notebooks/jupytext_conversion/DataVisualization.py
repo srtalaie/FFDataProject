@@ -8,8 +8,9 @@ get_ipython().magic(u'matplotlib inline')
 
 import os
 import sys
-src_dir = os.path.join(os.getcwd(), '..', 'src')
-sys.path.append(src_dir)
+src_dir = os.path.join(os.getcwd())
+abs_path = os.path.abspath(os.path.join(src_dir, os.pardir, 'src'))
+sys.path.append(abs_path)
 
 from utils import GLOBAL, functions
 

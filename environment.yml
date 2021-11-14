@@ -1,16 +1,8 @@
 name: FFDataProject
 
 dependencies:
-  - jupyter
-  - keras
-  - pandas
-  - python=2.7
-  - scikit-learn
-  - seaborn
-  - tensorflow
-  - conda-build
-  - sklearn
-  - nflfastpy
-  - requests
-  - bs4
-  - lxml
+  - python=
+  - anacond
+  - pip
+  - pip:
+    - -r requirements.txt

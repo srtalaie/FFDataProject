@@ -12,3 +12,4 @@ nflfastpy
 requests
 bs4
 lxml
+ipykernel

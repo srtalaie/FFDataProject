@@ -1,8 +1,8 @@
 name: FFDataProject
 
 dependencies:
-  - python=
-  - anacond
+  - python
+  - anaconda
   - pip
   - pip:
-    - -r requirements.txt
+      - -r requirements_dev.txt

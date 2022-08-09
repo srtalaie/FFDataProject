@@ -5,4 +5,4 @@ dependencies:
   - anaconda
   - pip
   - pip:
-      - -r requirements_dev.txt
+      - -r requirements.txt

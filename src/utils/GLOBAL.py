@@ -32,6 +32,7 @@ ADP_2022_PPR = "https://raw.githubusercontent.com/fantasydatapros/LearnPythonWit
 ADP_2023_HALF_PPR = "https://raw.githubusercontent.com/fantasydatapros/LearnPythonWithFantasyFootball/master/2023/06-Data%20Munging/02-ADP%20Data%20-%20(2023.08.17).csv"
 
 # Yearly Stats
+STATS_2022 = "https://raw.githubusercontent.com/srtalaie/FFDataProject/master/data/2022_Stats.csv"
 STATS_2021 = (
     "https://raw.githubusercontent.com/fantasydatapros/data/master/yearly/2021.csv"
 )

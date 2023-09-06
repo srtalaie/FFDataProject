@@ -14,7 +14,6 @@ dependencies:
   - astroid=2.11.7=py38haa95532_0
   - astropy=5.1=py38h080aedc_0
   - atomicwrites=1.4.0=py_0
-  - autopep8=1.5.6=pyhd3eb1b0_0
   - babel=2.9.1=pyhd3eb1b0_0
   - backcall=0.2.0=pyhd3eb1b0_0
   - backports=1.1=pyhd3eb1b0_0
@@ -71,7 +70,6 @@ dependencies:
   - et_xmlfile=1.1.0=py38haa95532_0
   - fastcache=1.1.0=py38he774522_0
   - filelock=3.6.0=pyhd3eb1b0_0
-  - flake8=3.9.0=pyhd3eb1b0_0
   - flask=1.1.2=pyhd3eb1b0_0
   - fonttools=4.25.0=pyhd3eb1b0_0
   - freetype=2.10.4=hd328e21_0
@@ -235,6 +233,7 @@ dependencies:
   - pywin32-ctypes=0.2.0=py38_1000
   - pywinpty=2.0.10=py38h5da7b33_0
   - pyyaml=6.0=py38h2bbff1b_1
+  - pyzmq=23.2.0=py38hd77b12b_0
   - qdarkstyle=2.8.1=py_0
   - qt=5.9.7=vc14h73c81de_0
   - qtawesome=1.0.3=pyhd3eb1b0_0
@@ -330,6 +329,7 @@ dependencies:
     - asttokens==2.2.1
     - astunparse==1.6.3
     - attrs==22.2.0
+    - autopep8==1.5.5
     - beautifulsoup4==4.11.2
     - bleach==6.0.0
     - build==1.0.0
@@ -340,6 +340,7 @@ dependencies:
     - executing==1.2.0
     - fastjsonschema==2.16.3
     - fastparquet==2023.2.0
+    - flake8==3.8.4
     - flatbuffers==2.0
     - fqdn==1.5.1
     - fsspec==2023.3.0
@@ -348,6 +349,7 @@ dependencies:
     - google-auth-oauthlib==0.4.6
     - google-pasta==0.2.0
     - grpcio==1.41.1
+    - helpdev==0.7.1
     - ipykernel==6.21.3
     - ipython==8.11.0
     - isoduration==20.11.0
@@ -384,19 +386,21 @@ dependencies:
     - pipreqs==0.4.13
     - platformdirs==3.1.1
     - prometheus-client==0.16.0
-    - prompt-toolkit==3.0.38
+    - prompt-toolkit==3.0.39
     - protobuf==3.19.1
     - psutil==5.9.4
     - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
     - pygments==2.14.0
     - pyproject-hooks==1.0.0
+    - pyqt5==5.12.3
+    - pyqt5-sip==12.12.2
+    - pyqtwebengine==5.12.1
     - pyrsistent==0.19.3
     - python-json-logger==2.0.7
     - python-snappy==0.6.1
     - pytz==2022.7.1
     - pywin32==305
-    - pyzmq==25.0.0
     - qtconsole==5.4.1
     - qtpy==2.3.0
     - requests-oauthlib==1.3.0
